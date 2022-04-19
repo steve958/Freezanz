@@ -1,0 +1,236 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-dark--1: #ffffff;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: inherit; */
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh;
+  overscroll-behavior-y: none;
+
+  background-color: #fff;
+  padding: 2.5rem;
+
+  display: flex;
+}
+
+/* GENERAL */
+a:link,
+a:visited {
+  color: var(--color-brand--1);
+}
+
+/* SIDEBAR */
+.sidebar {
+  flex-basis: 50rem;
+  background-color: var(--color-dark--1);
+  padding: 3rem 5rem 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  height: 18.2rem;
+  align-self: center;
+  margin-bottom: 4rem;
+}
+
+.devices {
+  list-style: none;
+  height: 150vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.devices::-webkit-scrollbar {
+  width: 0;
+}
+
+.device {
+  background-color: var(--color-dark--2);
+  border-radius: 12px;
+  padding: 1.8rem 3.25rem;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1.75rem 1.5rem;
+  height: 20rem;
+}
+
+.device1 {
+  background-color: var(--color-dark--2);
+  border-radius: 12px;
+  padding: 1.8rem 1.25rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  backdrop-filter: blur(10px);
+  /* gap: 1.5rem 1.5rem; */
+  /* height: 30rem; */
+}
+
+.desc {
+  font-size: large;
+  background-color: var(--color-dark--2);
+  border-radius: 12px;
+  /* padding: 1.8rem 3.25rem; */
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  gap: 1.75rem 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.workout--running {
+  border-left: 5px solid var(--color-brand--2);
+}
+.workout--cycling {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+.device__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  grid-column: 1;
+}
+
+.device__details {
+  display: flex;
+  font-size: 1.7rem;
+}
+
+.device__icon {
+  font-size: 1.8rem;
+  margin-right: 0.2rem;
+  height: 0.28rem;
+}
+
+.device__value {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.device__unit {
+  font-size: 1.1rem;
+  color: var(--color-light--1);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 20px;
+  padding: 1.5rem 1rem;
+  margin-bottom: 1.75rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2.5rem;
+
+  /* Match height and activity boxes */
+  height: 24rem;
+  transition: all 0.5s, transform 1ms;
+}
+
+.form.hidden {
+  transform: translateY(-30rem);
+  height: 0;
+  padding: 0 2.25rem;
+  margin-bottom: 0;
+  opacity: 0;
+}
+
+.form__row {
+  display: flex;
+  align-items: center;
+}
+
+.form__row--hidden {
+  display: none;
+}
+
+.form__label {
+  flex: 0 0 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.5rem 0.3rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-light--3);
+  transition: all 0.2s;
+}
+
+.form__input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.form__btn {
+  display: none;
+}
+/* MAP */
+#map {
+  flex: 1;
+  height: 100%;
+  background-color: var(--color-light--1);
+}
+
+/* Popup width is defined in JS using options */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  width: fit-content;
+  text-align: center;
+  background-color: var(--color-dark--2);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  /* padding-right: 0.6rem; */
+}
+
+.leaflet-popup .leaflet-popup-content {
+  margin: 13px 13px;
+  font-size: 1.5rem;
+  align-items: center;
+}
+.leaflet-popup-content {
+  margin: 13px 13px;
+  backdrop-filter: blur(10px);
+}
+
+.leaflet-popup .leaflet-popup-type {
+  background-color: var(--color-dark--2);
+}
+
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+}
